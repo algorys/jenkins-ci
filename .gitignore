@@ -1,0 +1,7 @@
+# PyCharm and Editors
+*.idea
+*.swp
+
+# Binaries
+*.pyc
+__pycache__/
