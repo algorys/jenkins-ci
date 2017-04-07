@@ -18,6 +18,8 @@ def get_config_location():
 
     settings_filenames = [
         os.path.abspath('../etc/settings.ini'),
+        '/usr/local/etc/jenkins-ci/settings.ini',
+        '%s/.local/jenkins-ci/settings.ini' % os.environ['HOME']
     ]
 
     return settings_filenames

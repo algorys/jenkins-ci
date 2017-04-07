@@ -22,9 +22,12 @@ ENDC = '\033[0m'
 
 def launch_job(jobname, branch):
     """
-    TODO
-    :param jobname:
-    :param branch:
+    Launch the job "jobname" with specified param "branch"
+
+    :param jobname: the name of the job
+    :type jobname: str
+    :param branch: wanted branch to compile
+    :type branch: str
     :return:
     """
 
@@ -52,6 +55,11 @@ def launch_job(jobname, branch):
     else:
         print('Build %s%s%s on %s' % (FAIL, build.get_status(), ENDC, branch))
     print(' Commit: %s' % build.get_revision()[:7])
+    print(' See on %s' % job.url)
+    print(build.get_result_url())
+    print(build.get_resultset())
+    print(build.get_artifact_dict())
+    print(job.get_matrix_runs())
 
 
 def check_job_progress(job):
@@ -73,8 +81,10 @@ def check_job_progress(job):
 
 def job_started(job):
     """
-    TODO
-    :return:
+    Check if job is stated or not
+
+    :param job: job triggered
+    :type job: jenkinsapi.job.Job
     """
 
     while not job.is_running():
