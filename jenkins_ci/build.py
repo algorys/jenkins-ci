@@ -11,13 +11,7 @@ import time
 from jenkinsapi.jenkins import Jenkins
 from jenkinsapi.utils.crumb_requester import CrumbRequester
 
-from jenkins_ci.settings import config
-
-# Common VAR
-OK = '\033[92m'
-WARN = '\033[93m'
-FAIL = '\033[91m'
-ENDC = '\033[0m'
+from jenkins_ci.settings import *
 
 
 def launch_job(jobname, branch):

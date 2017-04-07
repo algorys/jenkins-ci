@@ -9,6 +9,14 @@ import os
 import configparser
 from configparser import DuplicateOptionError, DuplicateSectionError
 
+# Common VAR
+OK = '\033[92m'
+BLUE = '\033[94m'
+PURPLE = '\033[95m'
+WARN = '\033[93m'
+FAIL = '\033[91m'
+ENDC = '\033[0m'
+
 
 def get_config_location():
     """

@@ -9,7 +9,7 @@ import subprocess
 import sys
 
 from jenkins_ci.build import launch_job
-from jenkins_ci.settings import config
+from jenkins_ci.settings import *
 
 # Actions
 commands = {
@@ -36,18 +36,18 @@ def usage():
     """
 
     print('Usage:')
-    print('    jenkins-ci build {job} {params}')
-    print('    jenkins-ci info {job}')
-    print('- Commands:')
+    print('    %sjenkins-ci {command} {job} <params>%s\n' % (OK, ENDC))
+    print('- %s{command}%s: command to execute' % (WARN, ENDC))
     for command in commands:
         print('    - %s: %s' % (command, commands[command]))
-    print('- Available Jobs:')
+    print('- %s{job}%s: job to trigger' % (WARN, ENDC))
     if available_jobs:
         for _job in available_jobs:
             print('    - %s' % _job)
     else:
         print('    No Jobs has been configured in settings.ini !')
-    print('- Params: parameters of specified job, separate by colon.')
+    print('- %s<params>%s: parameters of specified job, separate by colon. (optional)' % (WARN, ENDC))
+    print('    %sWARNING%s: Parameters must respect order of job !' % (PURPLE, ENDC))
 
 
 def main():
