@@ -1,0 +1,19 @@
+before_script:
+    - ls -la
+    - echo "BEFORE"
+
+stages:
+    - build
+    - test
+    - deploy
+
+job1:
+    stage: build
+    script:
+        - touch myfile.txt
+    stage: test
+    script:
+        - echo "Test de prod" >> test.txt
+    stage: deploy
+    script:
+        - cat test.txt
