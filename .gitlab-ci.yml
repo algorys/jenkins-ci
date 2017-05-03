@@ -11,9 +11,11 @@ job1:
     stage: build
     script:
         - touch myfile.txt
+job2:
     stage: test
     script:
         - echo "Test de prod" >> test.txt
+job3:
     stage: deploy
     script:
         - cat test.txt
