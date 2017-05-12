@@ -5,7 +5,6 @@
     Jenkins Launch launch the specified job
 """
 
-import subprocess
 import sys
 
 from jenkins_ci.build import launch_job
@@ -18,7 +17,7 @@ commands = {
     'build':
         'Build specified job on default branch or specified branch',
     'info':
-        'Display Job informations: like params or url'
+        'Display Job informations, like parameters or url'
 }
 
 # Jobs
@@ -56,10 +55,6 @@ def main():
 
     """
 
-    # Branch
-    branch_output = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'])
-    branch = branch_output.decode('UTF-8').split('\n')[0]
-
     # Parse ARGs
     if len(sys.argv) > 1:
         if sys.argv[1] in commands:
@@ -69,8 +64,11 @@ def main():
                 job = config.get('jobs', job_arg)
 
                 if job in jobs_name:
-                    print("Build %s" % config.get('jobs', job_arg))
-                    launch_job(job, branch)
+                    print("Start %s, waiting from Jenkins..." % config.get('jobs', job_arg))
+                    params = []
+                    if len(sys.argv) > 3:
+                        params = sys.argv[3].split(':')
+                    launch_job(job, params)
                 else:
                     print('ERROR: job %s not found...' % job_arg)
                     usage()
