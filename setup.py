@@ -24,10 +24,6 @@ with open(os.path.join('jenkins_ci/__init__.py')) as fh:
 
 package_name = manifest["__pkg_name__"]
 
-data_files = [
-    ('etc/jenkins-ci', ['etc/settings.ini']),
-    # ('bin', ['bin/jenkins_ci']),
-]
 
 setup(
     # Package name and version
@@ -37,7 +33,7 @@ setup(
     # Metadata for PyPI
     author=manifest["__author__"],
     author_email=manifest["__author_email__"],
-    keywords="jenkins ci",
+    keywords="jenkins integration",
     url=manifest["__project_url__"],
     license=manifest["__license__"],
     description=manifest["__description__"],
@@ -52,9 +48,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
 
-    # Where to install distributed files
-    data_files=data_files,
-
     # Dependencies (if some) ...
     install_requires=[
         'jenkinsapi'
@@ -63,7 +56,7 @@ setup(
     # Entry points (if some) ...
     entry_points={
         'console_scripts': [
-            'jenkins-ci = jenkins_ci.launch:main'
+            'jenkins-ci = jenkins_ci.jenkins-ci:launch'
         ],
     }
 )
