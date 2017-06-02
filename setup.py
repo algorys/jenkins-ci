@@ -56,7 +56,7 @@ setup(
     # Entry points (if some) ...
     entry_points={
         'console_scripts': [
-            'jenkins-ci = jenkins_ci.jenkins-ci:launch'
+            'jenkins-ci=jenkins_ci.jenkinsci:launch'
         ],
     }
 )
