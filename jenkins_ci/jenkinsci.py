@@ -36,7 +36,7 @@ def launch():
     parser = argparse.ArgumentParser(description='Launch a Jenkins job with its parameters')
     required_args = parser.add_argument_group('Required arguments')
     required_args.add_argument('-u', type=str, help='Jenkins user who can trigger the job')
-    required_args.add_argument('-t', help='User\'s token jenkins')
+    required_args.add_argument('-p', help='User\'s jenkins password or token')
     required_args.add_argument('-j', help='Jenkins job to launch, without its namespace')
     parser.add_argument(
         '--data',
@@ -45,7 +45,7 @@ def launch():
 
     args = parser.parse_args()
 
-    if args.u and args.t and args .j:
+    if args.u and args.p and args .j:
         data['user'] = args.u
         data['token'] = args.t
         data['job'] = args.j
