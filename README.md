@@ -26,22 +26,22 @@ sudo pip install .
 
 ## Usage
 
-Script have a `help` command to display the following:
+Script have a `help` command to display usage:
 
 ```bash
-jenkins-ci {command} {job} <params>
-- Commands:
-    - build: Build specified job on default branch or specified branch
-    - help: Display this helpful message
-    - info: Display Job informations: like params or url
-- Available Jobs:
-    - core
-    - graphs
-    - datasec
-    - sqlite
-    - elec
-    - gcs
-    - security
-    - graphics
-    - document
+jenkins-ci -h
 ```
+
+Let's say we have the following data:
+
+- Jenkins user: `admin`
+- User token: `y1y1y1y1y1y1`
+- One job called : `job1` with the parameters `gitlabSourceBranch` and `dependencies`.
+
+We will run the following command:
+
+```bash
+jenkins-ci -u admin -p y1y1y1y1y1y1 -j job1 --data dev:ON
+```
+
+The script will run the job **job1** with parameters `gitlabSourceBranch:dev, dependencies:ON`. Obviously, the user **must have the rights to run the job**.
