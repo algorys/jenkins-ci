@@ -27,33 +27,34 @@ def launch():
     """
 
     data = {
-        'username': None,
-        'token': None,
-        'job': None,
-        'params': None
+        'user': '',
+        'token': '',
+        'job': '',
+        'params': ''
     }
 
-    parser = argparse.ArgumentParser(description='Launch a Jenkins job')
-    parser.add_argument('-u', help='Jenkins user who can trigger the job')
-    parser.add_argument('-t', help='Jenkins Token of user')
-    parser.add_argument('-j', help='Jenskin Job to launch')
-    parser.add_argument('-D', help='Job data to pass as parameters')
+    parser = argparse.ArgumentParser(description='Launch a Jenkins job with its parameters')
+    required_args = parser.add_argument_group('Required arguments')
+    required_args.add_argument('-u', type=str, help='Jenkins user who can trigger the job')
+    required_args.add_argument('-t', help='User\'s token jenkins')
+    required_args.add_argument('-j', help='Jenkins job to launch, without its namespace')
+    parser.add_argument(
+        '--data',
+        help='Job parameters separated by colons (Parameters should follow order of the Job)'
+    )
 
     args = parser.parse_args()
 
-    if args.u:
+    if args.u and args.t and args .j:
         data['user'] = args.u
-
-    if args.t:
         data['token'] = args.t
-
-    if args.j:
         data['job'] = args.j
-
-    if args.D:
-        data['params'] = args.D
     else:
-        data['params'] = ''
+        parser.print_help()
+        sys.exit(0)
+
+    if args.data:
+        data['params'] = args.data
 
     launch_job(data)
 
