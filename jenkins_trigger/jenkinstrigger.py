@@ -47,7 +47,7 @@ def launch():
 
     if args.u and args.p and args .j:
         data['user'] = args.u
-        data['token'] = args.t
+        data['token'] = args.p
         data['job'] = args.j
     else:
         parser.print_help()
