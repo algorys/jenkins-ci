@@ -161,7 +161,8 @@ def display_job_result(job, data):
     print('Build #%s : %s' % (
         build.get_number(), color(build.get_status()))
     )
-    print('    Commit: %s' % build.get_revision()[:7])
+    if 'changeSet' in build._data:
+        print('    Commit: %s' % build.get_revision()[:7])
     print('    See on %s' % job.url)
 
     matrices = build.get_matrix_runs()
