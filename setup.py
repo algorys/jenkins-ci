@@ -18,7 +18,7 @@ if python_version < (2, 7):
     sys.exit("This application requires a minimum Python 2.7.x, sorry!")
 
 # Create manifest
-with open(os.path.join('jenkins_ci/__init__.py')) as fh:
+with open(os.path.join('jenkins_trigger/__init__.py')) as fh:
     manifest = {}
     exec(fh.read(), manifest)
 
@@ -56,7 +56,7 @@ setup(
     # Entry points (if some) ...
     entry_points={
         'console_scripts': [
-            'jenkins-ci=jenkins_ci.jenkinsci:launch'
+            'jenkins-trigger=jenkins_trigger.jenkinstrigger:launch'
         ],
     }
 )
