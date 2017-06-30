@@ -1,6 +1,8 @@
 # Jenkins-CI
 
-Jenkins-CI allow you to build a jenkins job with its parameters, from any platform.
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+
+Jenkins-CI allow you to build a jenkins job with its parameters, from any platform. This tool provides similar features to [Jenkins-CLI](https://jenkins.io/doc/book/managing/cli/) but it is in Python.
 
 ## Features
 
@@ -15,7 +17,7 @@ You should have Python installed on your device. This script is normally compati
 
 ## Installation
 
-imply download this repository and type the following commands:
+Simply download this repository and type the following commands:
 
 ```bash
 # clone repository and go inside.
